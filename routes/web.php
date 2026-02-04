@@ -78,13 +78,13 @@ Route::get('/force-real-email', function() {
                 'host' => 'smtp.gmail.com',
                 'port' => 587,
                 'encryption' => 'tls',
-                'username' => 'rahulsharma81229@gmail.com',
-                'password' => 'ceopxozwifogfbzk',
+                'username' => '',
+                'password' => '',
                 'timeout' => null,
                 'auth_mode' => null,
             ],
             'mail.from' => [
-                'address' => 'rahulsharma81229@gmail.com',
+                'address' => '',
                 'name' => 'Event System',
             ],
         ]);
