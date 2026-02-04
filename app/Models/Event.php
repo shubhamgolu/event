@@ -31,50 +31,55 @@ class Event extends Model
         'is_active' => 'boolean',
     ];
 
-    // Event belongs to a user (admin who created it)
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Event has one survey
     public function survey()
     {
         return $this->hasOne(Survey::class);
     }
 
-    // Event has many participants
     public function participants()
     {
         return $this->hasMany(Participant::class);
     }
 
-    // Event has many certificates
     public function certificates()
     {
         return $this->hasMany(Certificate::class);
     }
 
-    // Format date for display
+    // ADD THIS METHOD: Event has many survey responses through survey
+    public function surveyResponses()
+    {
+        return $this->hasManyThrough(
+            SurveyResponse::class,
+            Survey::class,
+            'event_id',
+            'survey_id',
+            'id',
+            'id'
+        );
+    }
+
     public function getFormattedDateAttribute()
     {
         return $this->date->format('F d, Y');
     }
 
-    // Format time for display
     public function getFormattedTimeAttribute()
     {
         return $this->time ? $this->time->format('h:i A') : 'TBD';
     }
 
-    // Check if event is full
     public function getIsFullAttribute()
     {
         if (!$this->capacity) return false;
         return $this->participants()->count() >= $this->capacity;
     }
 
-    // Get available spots
     public function getAvailableSpotsAttribute()
     {
         if (!$this->capacity) return 'Unlimited';

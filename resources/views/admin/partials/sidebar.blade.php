@@ -27,7 +27,7 @@
     </a>
 </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <a class="nav-link text-white" href="{{ route('admin.reports.index') }}">
                     <i class="fas fa-chart-bar me-2"></i>Reports
                 </a>
             </li>

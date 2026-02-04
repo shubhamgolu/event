@@ -143,10 +143,7 @@
                                 <a href="{{ route('admin.surveys.edit', $survey) }}" class="btn btn-warning">
                                     <i class="fas fa-edit me-2"></i>Edit Survey
                                 </a>
-                                <a href="{{ route('admin.surveys.preview', $survey) }}" 
-                                   class="btn btn-secondary" target="_blank">
-                                    <i class="fas fa-external-link-alt me-2"></i>Preview Survey
-                                </a>
+                               
                                 <a href="{{ route('admin.surveys.clone', $survey) }}" class="btn btn-primary">
                                     <i class="fas fa-copy me-2"></i>Clone Survey
                                 </a>
